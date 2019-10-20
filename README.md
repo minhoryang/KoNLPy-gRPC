@@ -1,6 +1,11 @@
 # KoNLPy-gRPC
 Redesigned KoNLPy (Wrapper) for Usability and Portability with gRPC.
 
+## gRPC Compile needed!
+```bash
+python -m grpc_tools.protoc -I protos/ --python_out=konlpy_grpc/_generated/ --grpc_python_out=konlpy_grpc/_generated/ protos/*.proto
+```
+
 ## Server
 ```bash
 python -m pip install konlpy
@@ -25,6 +30,7 @@ python -m pytest --grpc-real-server=[::]:50051
 ## TODO
 - [P0] client.py will be a konlpy-alike module.
   - [P0] KoNLPy monkey-patcher
+- [P1] gRPC Proto Compile
 - [P1] setup.py, requirements.txt, bumpversion, ...
   - PyPI Register
 - [P1] KoNLPy Version Matching (set minimum) and Follow-up
@@ -34,6 +40,7 @@ python -m pytest --grpc-real-server=[::]:50051
 - [P3] Button for deploying this to AWS/GCS/Azure now! (and connect by README.)
 - [P3] Redesign tests/ with grpc-testing
 - [P4] Java Edition for KoNLPy-gRPC-Server
+  - gRPC protos deploy/versioning
 
 ## Additional Links
 - [KoNLPy/KoNLPy](https://github.com/konlpy/konlpy)
