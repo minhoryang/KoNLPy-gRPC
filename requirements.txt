@@ -1,0 +1,14 @@
+grpcio
+
+# for server?
+#   -e konlpy
+#   jpype
+#   mecab
+
+# dev?
+grpcio-tools
+pytest
+pytest-grpc
+flake8
+isort
+black

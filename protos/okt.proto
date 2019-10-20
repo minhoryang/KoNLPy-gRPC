@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "global.proto";
+
+package konlpy.v0alpha;
+
+service Okt {
+  rpc Pos(StringRequest) returns (TupleArrayResponse);
+  rpc Nouns(StringRequest) returns (StringArrayResponse);
+  rpc Morphs(StringRequest) returns (StringArrayResponse);
+  rpc Phrases(StringRequest) returns (StringArrayResponse);
+  rpc Normalize(StringRequest) returns (StringArrayResponse);
+}
+

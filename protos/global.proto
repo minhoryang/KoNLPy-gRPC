@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package konlpy.v0alpha;
+
+message Option {
+    string key = 1;
+    bool value = 2;
+}
+
+message StringRequest {
+    string payload = 1;
+    repeated Option options = 2;
+}
+
+message TupleArrayResponse {
+    message Tuple {
+        string keyword = 1;
+        string tag = 2;
+    }
+    repeated Tuple results = 1; 
+    repeated Option options = 2;
+}
+
+message StringArrayResponse {
+    repeated string results = 1;
+    repeated Option options = 2;
+}

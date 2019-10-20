@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "global.proto";
+
+package konlpy.v0alpha;
+
+service Mecab {
+  rpc Pos(StringRequest) returns (TupleArrayResponse);
+  rpc Nouns(StringRequest) returns (StringArrayResponse);
+  rpc Morphs(StringRequest) returns (StringArrayResponse);
+}
+
