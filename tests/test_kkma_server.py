@@ -39,9 +39,7 @@ class TestKkma:
     def test_kkma_pos_with_wrong_option(kkma_stub):
         o = Option(key="wrong", value=False)
         r = StringRequest(payload="안녕하세요.", options=[o])
-        with pytest.raises(
-            (grpc.RpcError, Exception)
-        ) as e:  # FIXME: Exception -> CustomExc
+        with pytest.raises((grpc.RpcError, Exception)) as e:  # FIXME: Exception -> CustomExc
             p = kkma_stub.Pos(r)
             print(p, e)
         # No unhandled exception raised, test passed!

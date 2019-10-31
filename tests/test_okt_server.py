@@ -48,9 +48,7 @@ class TestOkt:
     def test_okt_pos_with_wrong_option(okt_stub):
         o = Option(key="wrong", value=False)
         r = StringRequest(payload="안녕하세요.", options=[o])
-        with pytest.raises(
-            (grpc.RpcError, Exception)
-        ) as e:  # FIXME: Exception -> CustomExc
+        with pytest.raises((grpc.RpcError, Exception)) as e:  # FIXME: Exception -> CustomExc
             p = okt_stub.Pos(r)
             print(p, e)
         # No unhandled exception raised, test passed!

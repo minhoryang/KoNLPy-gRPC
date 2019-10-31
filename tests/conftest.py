@@ -13,33 +13,22 @@ def grpc_servicer(request):
     - request.node (with `scope='module'`) will be a name of `test_*.py`.
     """
     result = []
+    print(request.node.name)
 
     if "hannanum" in request.node.name:
-        from konlpy_grpc.servers.hannanum_server import (
-            HannanumService,
-            add_to_server as add_hannanum,
-        )
+        from konlpy_grpc.servers.hannanum_server import HannanumService, add_to_server as add_hannanum
 
         result.append((add_hannanum, HannanumService()))
     if "kkma" in request.node.name:
-        from konlpy_grpc.servers.kkma_server import (
-            KkmaService,
-            add_to_server as add_kkma,
-        )
+        from konlpy_grpc.servers.kkma_server import KkmaService, add_to_server as add_kkma
 
         result.append((add_kkma, KkmaService()))
     if "komoran" in request.node.name:
-        from konlpy_grpc.servers.komoran_server import (
-            KomoranService,
-            add_to_server as add_komoran,
-        )
+        from konlpy_grpc.servers.komoran_server import KomoranService, add_to_server as add_komoran
 
         result.append((add_komoran, KomoranService()))
     if "mecab" in request.node.name:
-        from konlpy_grpc.servers.mecab_server import (
-            MecabService,
-            add_to_server as add_mecab,
-        )
+        from konlpy_grpc.servers.mecab_server import MecabService, add_to_server as add_mecab
 
         result.append((add_mecab, MecabService()))
     if "okt" in request.node.name:
@@ -91,3 +80,4 @@ def grpc_create_channel(request, grpc_addr):
 @pytest.hookimpl
 def pytest_addoption(parser):
     parser.addoption("--grpc-real-server", action="store", dest="grpc-real")
+    parser.addoption("--konlpy-repo", action="store", dest="konlpy-repo")

@@ -46,9 +46,7 @@ class TestHannanum:
     def test_hannanum_pos09_with_wrong_option(hannanum_stub):
         o = Option(key="wrong", value=False)
         r = StringRequest(payload="안녕하세요.", options=[o])
-        with pytest.raises(
-            (grpc.RpcError, Exception)
-        ) as e:  # FIXME: Exception -> CustomExc
+        with pytest.raises((grpc.RpcError, Exception)) as e:  # FIXME: Exception -> CustomExc
             p = hannanum_stub.Pos09(r)
             print(p, e)
         # No unhandled exception raised, test passed!
@@ -57,9 +55,7 @@ class TestHannanum:
     def test_hannanum_pos09_with_additional_ntags_option(hannanum_stub):
         o = Option(key="ntag:09", value=True)
         r = StringRequest(payload="안녕하세요.", options=[o])
-        with pytest.raises(
-            (grpc.RpcError, Exception)
-        ) as e:  # FIXME: Exception -> CustomExc
+        with pytest.raises((grpc.RpcError, Exception)) as e:  # FIXME: Exception -> CustomExc
             p = hannanum_stub.Pos09(r)
             print(p, e)
         # No unhandled exception raised, test passed!

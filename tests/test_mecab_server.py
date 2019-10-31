@@ -10,7 +10,7 @@ def mecab_stub(request):
 
     if not request.config.getoption("grpc-real"):
         pytest.importorskip("konlpy")
-        pytest.importorskip("MeCab.Tagger", reason="Mecab is optional.")
+        pytest.importorskip("MeCab", reason="Mecab is optional.")
 
     # Prepare the grpc-server/channel later.
     grpc_channel = request.getfixturevalue("grpc_channel")

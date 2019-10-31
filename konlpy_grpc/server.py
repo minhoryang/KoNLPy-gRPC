@@ -3,22 +3,14 @@ from concurrent import futures
 
 import grpc
 
-from .servers import (
-    hannanum_server,
-    kkma_server,
-    komoran_server,
-    mecab_server,
-    okt_server,
-)
+from .servers import hannanum_server, kkma_server, komoran_server, mecab_server, okt_server
 
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
 def serve():
-    server = grpc.server(
-        futures.ThreadPoolExecutor(max_workers=10)
-    )  # XXX: grpc doesn't support ProcessPoolExecutor.
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))  # XXX: grpc doesn't support ProcessPoolExecutor.
     hannanum_server.add_to_server(hannanum_server.HannanumService(), server)
     kkma_server.add_to_server(kkma_server.KkmaService(), server)
     komoran_server.add_to_server(komoran_server.KomoranService(), server)
