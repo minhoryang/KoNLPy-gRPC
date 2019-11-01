@@ -1,9 +1,66 @@
+[tool.poetry]
+name = "konlpy_grpc"
+version = "0.1.0"
+description = "Redesigned KoNLPy (Wrapper) for Usability and Portability with gRPC."
+license = "GPL-3.0+"
+authors = [
+    "Minho Ryang <minhoryang@gmail.com>",
+]
+readme = "README.md"
+homepage = "https://github.com/minhoryang/KoNLPy-gRPC"
+repository = "https://github.com/minhoryang/KoNLPy-gRPC"
+include = [
+    "konlpy_grpc/_generated/*.py",
+]
+exclude = [
+    "konlpy_grpc/_generated/.git*",
+]
+
+[tool.poetry.dependencies]
+grpcio = "*"
+grpcio-tools = "*"
+konlpy = [
+    # { version = "^0.5.2", allows-prereleases = true, optional = true },  # FIXME: Not Released and Uploaded yet.
+    { git = "https://github.com/minhoryang/konlpy", branch = "pruned/tags_only", optional = true, develop = true },
+    { path = "../konlpy/", optional = true, develop = true },
+]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+black = { version = "*", allows-prereleases = true }
+bump2version = "^0.5.11"
+flake8 = "*"
+flake8-black = "*"
+isort = "*"
+poetry = "^0.12"
+pytest = "*"
+pytest-cov = "*"
+pytest-grpc = "*"
+
+[tool.poetry.extras]
+server = ["konlpy"]
+
 [tool.black]
 line-length = 160
 target-version = ['py37']
 exclude = '''
-
 (
     konlpy_grpc/_generated/
 )
 '''
+
+[tool.isort]
+line_length = 160
+not_skip =  "__init__.py"
+include_trailing_comma = true
+lines_after_imports = 2
+multi_line_output = 3
+skip = '''
+(
+    konlpy_grpc/_generated/
+)
+'''
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

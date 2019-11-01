@@ -1,6 +1,12 @@
 # KoNLPy-gRPC
 Redesigned KoNLPy (Wrapper) for Usability and Portability with gRPC.
 
+## Requirements:
+```bash
+pip install poetry
+pip install $(python manage.py requirements.txt) $(python manage.py requirements-dev.txt)
+```
+
 ## gRPC Compile needed!
 ```bash
 python -m grpc_tools.protoc -I protos/ --python_out=konlpy_grpc/_generated/ --grpc_python_out=konlpy_grpc/_generated/ protos/*.proto
@@ -31,9 +37,18 @@ python -m pytest --konlpy-repo=../konlpy
 ## TODO
 - [x] [P0] client.py will be a konlpy-alike module.
   - [x] [P0] KoNLPy monkey-patcher
+- [x] [P1] Packaging with Poetry `pyproject.toml`.
+  - [ ] PyPI Register (BLOCKED BY - KoNLPy v0.5.2 release)
+  - [ ] Find lowerbound-version of requirements. <!-- poetry debug:resolve -->
 - [P1] gRPC Proto Compile
-- [P1] setup.py, requirements.txt, bumpversion, ...
-  - PyPI Register
+- [P1] In-house tool: `manage.py`
+<!--
+  - doit
+  - bazel
+  - bump2version
+  - poetry-dynamic-versioning
+  - pytest.ini to pyproject.toml
+-->
 - [P1] KoNLPy Version Matching (set minimum) and Follow-up
 - [P1] gRPC retry/timeout/error_handling logic <!-- google.api_core.* or grpc-retry-py -->
 - [P2] Dockerize / Register
