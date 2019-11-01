@@ -48,3 +48,6 @@ class TestKonlpyCompatibleOkt(TBaseKonlpyCompatible):
 
     def test_tkorean_morphs(self, target, okt_instance):
         target.test_tkorean_morphs(okt_instance, target.string.__wrapped__())
+
+    def test_tkorean_normalize(self, target, okt_instance):
+        target.test_tkorean_normalize(okt_instance, target.string.__wrapped__())

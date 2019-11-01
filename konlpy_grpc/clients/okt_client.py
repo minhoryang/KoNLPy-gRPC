@@ -20,4 +20,4 @@ class OktClient:  # TODO: Async call method needed?
         return StringArrayResponse(self.stub.Phrases(global_pb2.StringRequest(payload=phrase, options=None)))
 
     def normalize(self, phrase):
-        return StringArrayResponse(self.stub.Normalize(global_pb2.StringRequest(payload=phrase, options=None)))  # FIXME: not touch why?!
+        return StringArrayResponse(self.stub.Normalize(global_pb2.StringRequest(payload=phrase, options=None)))[0]  # FIXME: proto can't handle this.

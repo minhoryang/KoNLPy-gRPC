@@ -57,7 +57,7 @@ class OktService(okt_pb2_grpc.OktServicer):
 
     def Normalize(self, request, context):
         jpype.attachThreadToJVM()  # XXX: Performance Incresed. (Still don't know yet)
-        return global_pb2.StringArrayResponse(results=self.engine.normalize(request.payload), options=request.options)
+        return global_pb2.StringArrayResponse(results=[self.engine.normalize(request.payload)], options=request.options)  # FIXME: proto can't handle this.
 
 
 add_to_server = okt_pb2_grpc.add_OktServicer_to_server

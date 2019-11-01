@@ -33,3 +33,6 @@ class TestKonlpyCompatibleKomoran(TBaseKonlpyCompatible):
 
     def test_komoran_pos_join(self, target, komoran_instance):
         target.test_komoran_pos_join(komoran_instance, target.string.__wrapped__())
+
+    def test_komoran_morphs(self, target, komoran_instance):
+        target.test_komoran_morphs(komoran_instance, target.string.__wrapped__())
