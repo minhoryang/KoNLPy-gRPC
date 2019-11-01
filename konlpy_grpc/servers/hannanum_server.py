@@ -3,6 +3,7 @@ from concurrent import futures
 
 import grpc
 import jpype
+
 from konlpy.tag import Hannanum
 
 from .._generated import global_pb2, hannanum_pb2_grpc
@@ -13,7 +14,6 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
 class HannanumService(hannanum_pb2_grpc.HannanumServicer):
-    BYPASS_OPTIONS = tuple()
     HANDLE_OPTIONS = ("ntags:09", "ntags:22", "flatten", "join")
 
     def __init__(self):
@@ -23,12 +23,8 @@ class HannanumService(hannanum_pb2_grpc.HannanumServicer):
     def _check_options(options):
         result = {}
         for option in options:
-            if option.key in HannanumService.BYPASS_OPTIONS:
-                pass
-            elif option.key not in HannanumService.HANDLE_OPTIONS:
-                raise Exception(
-                    "%s option is not supported! (supported: %s)" % (option.key, ", ".join(HannanumService.BYPASS_OPTIONS + HannanumService.HANDLE_OPTIONS))
-                )
+            if option.key not in HannanumService.HANDLE_OPTIONS:
+                raise Exception("%s option is not supported! (supported: %s)" % (option.key, ", ".join(HannanumService.HANDLE_OPTIONS)))
                 # TODO: context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
             elif option.key in ("ntags:09", "ntags:22"):
                 raise Exception("ntags option is already covered by Pos09(), Pos22().")

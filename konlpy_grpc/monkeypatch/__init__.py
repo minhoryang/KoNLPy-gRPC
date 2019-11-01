@@ -96,7 +96,7 @@ def shim_class(name, konlpy__clz, konlpy_grpc__clz):
 
     for key, value in konlpy__clz.__dict__.items():
         if isinstance(value, types.FunctionType) and value.__doc__ and key in shim.__dict__.keys() and not shim.__dict__[key].__doc__:
-            shim.__dict__[key].__doc__ = value.__doc__
+            shim.__dict__[key].__doc__ = value.__doc__  # FIXME: not touch here why?
     return shim
 
 

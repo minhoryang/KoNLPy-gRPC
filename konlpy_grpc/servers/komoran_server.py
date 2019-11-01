@@ -3,6 +3,7 @@ from concurrent import futures
 
 import grpc
 import jpype
+
 from konlpy.tag import Komoran
 
 from .._generated import global_pb2, komoran_pb2_grpc
@@ -13,7 +14,6 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
 class KomoranService(komoran_pb2_grpc.KomoranServicer):
-    BYPASS_OPTIONS = tuple()
     HANDLE_OPTIONS = ("flatten", "join")  # TODO: userdic
 
     def __init__(self):
@@ -23,12 +23,8 @@ class KomoranService(komoran_pb2_grpc.KomoranServicer):
     def _check_options(options):
         result = {}
         for option in options:
-            if option.key in KomoranService.BYPASS_OPTIONS:
-                pass
-            elif option.key not in KomoranService.HANDLE_OPTIONS:
-                raise Exception(
-                    "%s option is not supported! (supported: %s)" % (option.key, ", ".join(KomoranService.BYPASS_OPTIONS + KomoranService.HANDLE_OPTIONS))
-                )
+            if option.key not in KomoranService.HANDLE_OPTIONS:
+                raise Exception("%s option is not supported! (supported: %s)" % (option.key, ", ".join(KomoranService.HANDLE_OPTIONS)))
                 # TODO: context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
             else:
                 result[option.key] = option.value

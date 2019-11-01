@@ -3,6 +3,7 @@ from concurrent import futures
 
 import grpc
 import jpype
+
 from konlpy.tag import Kkma
 
 from .._generated import global_pb2, kkma_pb2_grpc
@@ -13,7 +14,6 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
 class KkmaService(kkma_pb2_grpc.KkmaServicer):
-    BYPASS_OPTIONS = tuple()
     HANDLE_OPTIONS = ("flatten", "join")
 
     def __init__(self):
@@ -23,12 +23,8 @@ class KkmaService(kkma_pb2_grpc.KkmaServicer):
     def _check_options(options):
         result = {}
         for option in options:
-            if option.key in KkmaService.BYPASS_OPTIONS:
-                pass
-            elif option.key not in KkmaService.HANDLE_OPTIONS:
-                raise Exception(
-                    "%s option is not supported! (supported: %s)" % (option.key, ", ".join(KkmaService.BYPASS_OPTIONS + KkmaService.HANDLE_OPTIONS))
-                )
+            if option.key not in KkmaService.HANDLE_OPTIONS:
+                raise Exception("%s option is not supported! (supported: %s)" % (option.key, ", ".join(KkmaService.HANDLE_OPTIONS)))
                 # TODO: context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
             else:
                 result[option.key] = option.value

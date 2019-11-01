@@ -2,6 +2,7 @@ import time
 from concurrent import futures
 
 import grpc
+
 from konlpy.tag import Mecab
 
 from .._generated import global_pb2, mecab_pb2_grpc
@@ -12,7 +13,6 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
 class MecabService(mecab_pb2_grpc.MecabServicer):
-    BYPASS_OPTIONS = tuple()
     HANDLE_OPTIONS = ("flatten", "join")
 
     def __init__(self):
@@ -22,12 +22,8 @@ class MecabService(mecab_pb2_grpc.MecabServicer):
     def _check_options(options):
         result = {}
         for option in options:
-            if option.key in MecabService.BYPASS_OPTIONS:
-                pass
-            elif option.key not in MecabService.HANDLE_OPTIONS:
-                raise Exception(
-                    "%s option is not supported! (supported: %s)" % (option.key, ", ".join(MecabService.BYPASS_OPTIONS + MecabService.HANDLE_OPTIONS))
-                )
+            if option.key not in MecabService.HANDLE_OPTIONS:
+                raise Exception("%s option is not supported! (supported: %s)" % (option.key, ", ".join(MecabService.HANDLE_OPTIONS)))
                 # TODO: context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
             else:
                 result[option.key] = option.value
