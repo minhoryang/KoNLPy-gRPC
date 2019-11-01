@@ -13,3 +13,6 @@ def StringArrayResponse(response):
 
 def Options(**kwargs):
     return [global_pb2.Option(key=key, value=bool(value)) for key, value in kwargs.items()]
+
+
+# TODO: gRPC Inject `grpc_channel` and context in here!

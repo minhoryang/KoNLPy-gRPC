@@ -51,6 +51,7 @@ python -m pytest --konlpy-repo=../konlpy
 -->
 - [P1] KoNLPy Version Matching (set minimum) and Follow-up
 - [P1] gRPC retry/timeout/error_handling logic <!-- google.api_core.* or grpc-retry-py -->
+- [P1] gRPC reflection/heartbeat
 - [P2] Dockerize / Register
   - k8s and istio?
 - [P2] CI

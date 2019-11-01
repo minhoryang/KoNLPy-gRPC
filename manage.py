@@ -18,7 +18,7 @@ if __name__ == "__main__":  # FIXME: with click! (or sdispater/cleo)
 
         c = Coverage()
         c.load()
-        c.html_report(directory="covhtml")
+        c.html_report(directory="covhtml", omit="konlpy_grpc/_generated/*")
     elif mode == "git:cleanup":
         pass  # TODO
     elif mode == "bumpversion":
