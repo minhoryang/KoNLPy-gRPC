@@ -4,7 +4,7 @@ Redesigned KoNLPy (Wrapper) for Usability and Portability with gRPC.
 ## Requirements:
 ```bash
 pip install poetry
-pip install $(python manage.py requirements.txt) $(python manage.py requirements-dev.txt)
+pip install -r $(python manage.py requirements.txt) -r $(python manage.py requirements-dev.txt)
 ```
 
 ## gRPC Compile needed!
