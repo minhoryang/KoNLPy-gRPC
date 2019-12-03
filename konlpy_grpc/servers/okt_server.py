@@ -6,7 +6,7 @@ import jpype
 
 from konlpy.tag import Okt
 
-from .._generated import global_pb2, okt_pb2_grpc
+from .._generated import global_pb2, okt_pb2, okt_pb2_grpc
 from ..monkeypatch import _ORIGINAL, KEY_TAG_OKT
 
 
@@ -61,6 +61,9 @@ class OktService(okt_pb2_grpc.OktServicer):
 
 
 add_to_server = okt_pb2_grpc.add_OktServicer_to_server
+
+
+SERVICE_NAME = okt_pb2._OKT.full_name
 
 
 def serve():

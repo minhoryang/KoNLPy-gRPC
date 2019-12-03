@@ -6,7 +6,7 @@ import jpype
 
 from konlpy.tag import Komoran
 
-from .._generated import global_pb2, komoran_pb2_grpc
+from .._generated import global_pb2, komoran_pb2, komoran_pb2_grpc
 from ..monkeypatch import _ORIGINAL, KEY_TAG_KOMORAN
 
 
@@ -53,6 +53,9 @@ class KomoranService(komoran_pb2_grpc.KomoranServicer):
 
 
 add_to_server = komoran_pb2_grpc.add_KomoranServicer_to_server
+
+
+SERVICE_NAME = komoran_pb2._KOMORAN.full_name
 
 
 def serve():

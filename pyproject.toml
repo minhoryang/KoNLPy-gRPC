@@ -19,8 +19,9 @@ exclude = [
 [tool.poetry.dependencies]
 grpcio = "*"
 grpcio-tools = "*"
+grpcio-reflection = "*"
 konlpy = [
-    # { version = "^0.5.2", allows-prereleases = true, optional = true },  # FIXME: Not Released and Uploaded yet.
+    { version = "^0.5.2", optional = true },
     { git = "https://github.com/minhoryang/konlpy", branch = "pruned/tags_only", optional = true, develop = true },
     { path = "../konlpy/", optional = true, develop = true },
 ]
@@ -39,6 +40,8 @@ pytest-grpc = "*"
 
 [tool.poetry.extras]
 server = ["konlpy"]
+# grpc = ["grpcio"]  # pip install konlpy_grpc[grpc]  # renaming needed! konlpy_rpc konlpy_easy konlpy_api konlpy_client?
+# http = ["requests", ...]  # pip install konlpy_grpc[http]
 
 [tool.black]
 line-length = 160

@@ -5,7 +5,7 @@ import grpc
 
 from konlpy.tag import Mecab
 
-from .._generated import global_pb2, mecab_pb2_grpc
+from .._generated import global_pb2, mecab_pb2, mecab_pb2_grpc
 from ..monkeypatch import _ORIGINAL, KEY_TAG_MECAB
 
 
@@ -49,6 +49,9 @@ class MecabService(mecab_pb2_grpc.MecabServicer):
 
 
 add_to_server = mecab_pb2_grpc.add_MecabServicer_to_server
+
+
+SERVICE_NAME = mecab_pb2._MECAB.full_name
 
 
 def serve():

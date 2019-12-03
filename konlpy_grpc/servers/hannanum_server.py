@@ -6,7 +6,7 @@ import jpype
 
 from konlpy.tag import Hannanum
 
-from .._generated import global_pb2, hannanum_pb2_grpc
+from .._generated import global_pb2, hannanum_pb2, hannanum_pb2_grpc
 from ..monkeypatch import _ORIGINAL, KEY_TAG_HANNANUM
 
 
@@ -70,6 +70,9 @@ class HannanumService(hannanum_pb2_grpc.HannanumServicer):
 
 
 add_to_server = hannanum_pb2_grpc.add_HannanumServicer_to_server
+
+
+SERVICE_NAME = hannanum_pb2._HANNANUM.full_name
 
 
 def serve():

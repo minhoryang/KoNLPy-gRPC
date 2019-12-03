@@ -6,7 +6,7 @@ import jpype
 
 from konlpy.tag import Kkma
 
-from .._generated import global_pb2, kkma_pb2_grpc
+from .._generated import global_pb2, kkma_pb2, kkma_pb2_grpc
 from ..monkeypatch import _ORIGINAL, KEY_TAG_KKMA
 
 
@@ -57,6 +57,9 @@ class KkmaService(kkma_pb2_grpc.KkmaServicer):
 
 
 add_to_server = kkma_pb2_grpc.add_KkmaServicer_to_server
+
+
+SERVICE_NAME = kkma_pb2._KKMA.full_name
 
 
 def serve():

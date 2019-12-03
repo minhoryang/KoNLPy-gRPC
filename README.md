@@ -38,7 +38,7 @@ python -m pytest --konlpy-repo=../konlpy
 - [x] [P0] client.py will be a konlpy-alike module.
   - [x] [P0] KoNLPy monkey-patcher
 - [x] [P1] Packaging with Poetry `pyproject.toml`.
-  - [ ] PyPI Register (BLOCKED BY - KoNLPy v0.5.2 release)
+  - [ ] PyPI Register
   - [ ] Find lowerbound-version of requirements. <!-- poetry debug:resolve -->
 - [P1] gRPC Proto Compile
 - [P1] In-house tool: `manage.py`
@@ -51,7 +51,8 @@ python -m pytest --konlpy-repo=../konlpy
 -->
 - [P1] KoNLPy Version Matching (set minimum) and Follow-up
 - [P1] gRPC retry/timeout/error_handling logic <!-- google.api_core.* or grpc-retry-py -->
-- [P1] gRPC reflection/heartbeat
+- [x] [P1] gRPC reflection
+- [P1] gRPC heartbeat
 - [P2] Dockerize / Register
   - k8s and istio?
 - [P2] CI
@@ -65,7 +66,7 @@ python -m pytest --konlpy-repo=../konlpy
 ## Additional Links
 - [KoNLPy/KoNLPy](https://github.com/konlpy/konlpy)
 - [Pruned KoNLPy v0.5.2-rc.1](https://github.com/minhoryang/konlpy)
-  - Currently, servers rely on KoNLPy v0.5.2-rc.1 version.
+  - Currently, servers rely on KoNLPy v0.5.2 version.
 
 ## License
 GNU GPLv3
