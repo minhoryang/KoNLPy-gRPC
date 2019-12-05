@@ -1,0 +1,192 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "kkma.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v0alpha/kkma/morphs": {
+      "post": {
+        "operationId": "Morphs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v0alphaStringArrayResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v0alphaStringRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Kkma"
+        ]
+      }
+    },
+    "/v0alpha/kkma/nouns": {
+      "post": {
+        "operationId": "Nouns",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v0alphaStringArrayResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v0alphaStringRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Kkma"
+        ]
+      }
+    },
+    "/v0alpha/kkma/pos": {
+      "post": {
+        "operationId": "Pos",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v0alphaTupleArrayResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v0alphaStringRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Kkma"
+        ]
+      }
+    },
+    "/v0alpha/kkma/sentences": {
+      "post": {
+        "operationId": "Sentences",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v0alphaStringArrayResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v0alphaStringRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Kkma"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "TupleArrayResponseTuple": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      }
+    },
+    "v0alphaOption": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "v0alphaStringArrayResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v0alphaOption"
+          }
+        }
+      }
+    },
+    "v0alphaStringRequest": {
+      "type": "object",
+      "properties": {
+        "payload": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v0alphaOption"
+          }
+        }
+      }
+    },
+    "v0alphaTupleArrayResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TupleArrayResponseTuple"
+          }
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v0alphaOption"
+          }
+        }
+      }
+    }
+  }
+}

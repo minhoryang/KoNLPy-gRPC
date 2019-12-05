@@ -53,6 +53,7 @@ python -m pytest --konlpy-repo=../konlpy
 - [P1] gRPC retry/timeout/error_handling logic <!-- google.api_core.* or grpc-retry-py -->
 - [x] [P1] gRPC reflection
 - [P1] gRPC heartbeat
+- [x] [P1] gRPC Gateway (gRPC to JSON)
 - [P2] Dockerize / Register
   - k8s and istio?
 - [P2] CI

@@ -1,0 +1,65 @@
+ type: google.api.Service
+ config_version: 3
+
+ http:
+   rules:
+   - selector: konlpy.v0alpha.Hannanum.Pos09
+     post: /v0alpha/hannanum/pos09
+     body: "*"
+   - selector: konlpy.v0alpha.Hannanum.Pos22
+     post: /v0alpha/hannanum/pos22
+     body: "*"
+   - selector: konlpy.v0alpha.Hannanum.Nouns
+     post: /v0alpha/hannanum/nouns
+     body: "*"
+   - selector: konlpy.v0alpha.Hannanum.Morphs
+     post: /v0alpha/hannanum/morphs
+     body: "*"
+   - selector: konlpy.v0alpha.Hannanum.Analyze
+     post: /v0alpha/hannanum/analyze
+     body: "*"
+   - selector: konlpy.v0alpha.Kkma.Pos
+     post: /v0alpha/kkma/pos
+     body: "*"
+   - selector: konlpy.v0alpha.Kkma.Nouns
+     post: /v0alpha/kkma/nouns
+     body: "*"
+   - selector: konlpy.v0alpha.Kkma.Morphs
+     post: /v0alpha/kkma/morphs
+     body: "*"
+   - selector: konlpy.v0alpha.Kkma.Sentences
+     post: /v0alpha/kkma/sentences
+     body: "*"
+   - selector: konlpy.v0alpha.Komoran.Pos
+     post: /v0alpha/komoran/pos
+     body: "*"
+   - selector: konlpy.v0alpha.Komoran.Nouns
+     post: /v0alpha/komoran/nouns
+     body: "*"
+   - selector: konlpy.v0alpha.Komoran.Morphs
+     post: /v0alpha/komoran/morphs
+     body: "*"
+   - selector: konlpy.v0alpha.Mecab.Pos
+     post: /v0alpha/mecab/pos
+     body: "*"
+   - selector: konlpy.v0alpha.Mecab.Nouns
+     post: /v0alpha/mecab/nouns
+     body: "*"
+   - selector: konlpy.v0alpha.Mecab.Morphs
+     post: /v0alpha/mecab/morphs
+     body: "*"
+   - selector: konlpy.v0alpha.Okt.Pos
+     post: /v0alpha/okt/pos
+     body: "*"
+   - selector: konlpy.v0alpha.Okt.Nouns
+     post: /v0alpha/okt/nouns
+     body: "*"
+   - selector: konlpy.v0alpha.Okt.Morphs
+     post: /v0alpha/okt/morphs
+     body: "*"
+   - selector: konlpy.v0alpha.Okt.Phrases
+     post: /v0alpha/okt/phrases
+     body: "*"
+   - selector: konlpy.v0alpha.Okt.Normalize
+     post: /v0alpha/okt/normalize
+     body: "*"

@@ -1,0 +1,3 @@
+*.gw.go
+*.pb.go
+*.swagger.json
