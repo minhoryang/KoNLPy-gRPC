@@ -34,11 +34,18 @@ python -m pytest --grpc-real-server=[::]:50051
 python -m pytest --konlpy-repo=../konlpy
 ```
 
+## Release
+```bash
+rm -rf dist/
+poetry publish --build -r test
+poetry run twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+```
+
 ## TODO
 - [x] [P0] client.py will be a konlpy-alike module.
   - [x] [P0] KoNLPy monkey-patcher
 - [x] [P1] Packaging with Poetry `pyproject.toml`.
-  - [ ] PyPI Register
+  - [x] PyPI Register
   - [ ] Find lowerbound-version of requirements. <!-- poetry debug:resolve -->
 - [P1] gRPC Proto Compile
 - [P1] In-house tool: `manage.py`
@@ -54,7 +61,7 @@ python -m pytest --konlpy-repo=../konlpy
 - [x] [P1] gRPC reflection
 - [P1] gRPC heartbeat
 - [x] [P1] gRPC Gateway (gRPC to JSON)
-- [P2] Dockerize / Register
+- [x] [P2] Dockerize / Register
   - k8s and istio?
 - [P2] CI
 - [P3] Button for deploying this to AWS/GCS/Azure now! (and connect by README.)

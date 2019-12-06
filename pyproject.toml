@@ -11,9 +11,11 @@ homepage = "https://github.com/minhoryang/KoNLPy-gRPC"
 repository = "https://github.com/minhoryang/KoNLPy-gRPC"
 include = [
     "konlpy_grpc/_generated/*.py",
+    "konlpy_grpc_gateway/README.md",
 ]
 exclude = [
     "konlpy_grpc/_generated/.git*",
+    "konlpy_grpc_gateway/*",
 ]
 
 [tool.poetry.dependencies]
@@ -22,8 +24,8 @@ grpcio-tools = "*"
 grpcio-reflection = "*"
 konlpy = [
     { version = "^0.5.2", optional = true },
-    { git = "https://github.com/minhoryang/konlpy", branch = "pruned/tags_only", optional = true, develop = true },
-    { path = "../konlpy/", optional = true, develop = true },
+    # { git = "https://github.com/minhoryang/konlpy", branch = "pruned/tags_only", optional = true, develop = true },
+    # { path = "../konlpy/", optional = true, develop = true },
 ]
 python = "^3.6"
 
@@ -37,6 +39,7 @@ poetry = "^0.12"
 pytest = "*"
 pytest-cov = "*"
 pytest-grpc = "*"
+twine = "*"
 
 [tool.poetry.extras]
 server = ["konlpy"]

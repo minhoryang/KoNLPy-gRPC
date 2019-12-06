@@ -20,7 +20,7 @@ func main() {
 
 	ctx := context.Background()
 	opts := gateway.Options{
-		Addr: ":8080",
+		Addr: ":80",
 		GRPCServer: gateway.Endpoint{
 			Network: *network,
 			Addr:    *endpoint,

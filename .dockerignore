@@ -1,0 +1,6 @@
+**/.git
+*/
+*
+!Dockerfile
+!konlpy_grpc_gateway/
+!tools/
