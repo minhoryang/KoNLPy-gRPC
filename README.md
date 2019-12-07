@@ -1,6 +1,9 @@
 # KoNLPy-gRPC
 Redesigned KoNLPy (Wrapper) for Usability and Portability with gRPC.
 
+## Try Now!
+[![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/minhoryang/KoNLPy-gRPC)
+
 ## Requirements:
 ```bash
 pip install poetry
@@ -64,7 +67,9 @@ poetry run twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 - [x] [P2] Dockerize / Register
   - k8s and istio?
 - [P2] CI
-- [P3] Button for deploying this to AWS/GCS/Azure now! (and connect by README.)
+- [x] [P3] Button for deploying this to AWS/GCS/Azure now! (and connect by README.)
+  - [x] [aizine](https://ainize.ai/deployment/minhoryang/konlpy-grpc)
+  - [ ] AWS/GCS/Azure
 - [P3] CustomDic?
 - [P3] Stream I/O
 - [P3] Redesign tests/ with grpc-testing

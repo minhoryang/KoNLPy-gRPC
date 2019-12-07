@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "konlpy_grpc"
-version = "0.1.0"
+version = "0.1.1-dev"
 description = "Redesigned KoNLPy (Wrapper) for Usability and Portability with gRPC."
 license = "GPL-3.0+"
 authors = [
