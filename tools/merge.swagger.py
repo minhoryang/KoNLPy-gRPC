@@ -58,8 +58,8 @@ RESULT["definitions"]["v0alphaStringRequest"]["properties"] = {
     # XXX: "options" removed.
 }
 RESULT["schemes"] = ["https"]
-RESULT["host"] = "endpoint.ainize.ai/"
-RESULT["basePath"] = "minhoryang/konlpy-grpc/v0alpha"
+RESULT["host"] = "endpoint.ainize.ai"
+RESULT["basePath"] = "/minhoryang/konlpy-grpc/v0alpha"
 
 RESULT["paths"]["/hannanum/analyze"]["post"]["summary"] = "구문 분석을 합니다."
 RESULT["paths"]["/hannanum/morphs"]["post"]["summary"] = "문장에서 형태소를 뽑아냅니다."
