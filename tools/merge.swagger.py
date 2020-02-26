@@ -7,7 +7,7 @@ RESULT = {}
 RESULT["swagger"] = "2.0"
 RESULT["info"] = {
     "title": "KoNLPy Service",
-    "version": "0.1.0",  # FIXME: pull this from pyproject.toml
+    "version": "0.2.0",  # FIXME: pull this from pyproject.toml
     "description": """## KoNLPy("코엔엘파이")는 한국어 정보처리를 위한 파이썬 패키지입니다.
 이 서비스는 **KoNLPy의 최신버전(v0.5.2)**을 쉽게 사용해볼 수 있도록 제공된 **OpenResource**입니다.
 
@@ -58,8 +58,8 @@ RESULT["definitions"]["v0alphaStringRequest"]["properties"] = {
     # XXX: "options" removed.
 }
 RESULT["schemes"] = ["https"]
-RESULT["host"] = "endpoint.ainize.ai"
-RESULT["basePath"] = "/minhoryang/konlpy-grpc/v0alpha"
+RESULT["host"] = "konlpy-grpc.minhoryang.endpoint.ainize.ai"
+RESULT["basePath"] = "/v0alpha"
 
 RESULT["paths"]["/hannanum/analyze"]["post"]["summary"] = "구문 분석을 합니다."
 RESULT["paths"]["/hannanum/morphs"]["post"]["summary"] = "문장에서 형태소를 뽑아냅니다."
